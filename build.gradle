@@ -1,0 +1,27 @@
+plugins {
+	id 'java'
+
+}
+
+
+group = 'com.home'
+version = '0.0.1-SNAPSHOT'
+description = 'Demo project for Spring Boot'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(17)
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
