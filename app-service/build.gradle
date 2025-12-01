@@ -11,6 +11,12 @@ apply plugin: "io.spring.dependency-management"
 springBoot {
     mainClass = 'com.home.myApp.MyAppApplication'
 }
+ext{
+    spring = [
+            web     :"org.springframework.boot:spring-boot-starter-web",
+            actuator:"org.springframework.boot:spring-boot-starter-actuator"
+    ]
+}
 
 // Alternatively, directly on the bootJar task:
 tasks.named("bootJar") {
@@ -29,8 +35,7 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation spring.web, spring.actuator
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
